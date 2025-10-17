@@ -9,5 +9,10 @@ plotdata：绘图数据
 src：库代码
 test：单元测试
 
+依赖：venv虚拟环境，用pycharm创建即可
+numpy
+pandas
+matplotlib
+tushare
 
 

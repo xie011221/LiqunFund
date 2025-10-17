@@ -2,3 +2,5 @@
 .idea/
 手动转换/
 手动转移/
+*.parquet
+*.eps
