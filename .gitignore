@@ -4,3 +4,5 @@
 手动转移/
 *.parquet
 *.eps
+**/*.parquet
+**/*.eps
