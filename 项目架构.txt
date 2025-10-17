@@ -1,0 +1,41 @@
+除单元测试外，不要使用jupyter作为项目代码
+一定要写单元测试！
+
+
++data                           存放原始数据。储存方式全部使用df.to_parquet("data.parquet", engine='pyarrow')
+ -market                       4.行情数据，仅包括share_code, trade_date, price。以开盘价替代价格。通过原始行情数据生成。注意此处应清洗数据，确保包含所有交易日。
+ -raw_market               3.原始行情数据，包括所有
+ -hfq_market               7.后复权行情数据，包括所有数据。
+ -basic                          8.市场基础数据，包括换手率/pe/pb等基础数据
+ -component              2.曾进入过沪深300成分的股票
+ -component_calendar 5.通过上一个数据自动构建沪深300每日成分股
+ -component_full      1.按月成分数据
+ -dividend                   6.拆股分红数据
+ -hs300_market          9.沪深300指数数据
+--------------------------------------------------------已完成单元测试
+
++datasrc                      用于下载数据的代码
+--------------------------------------------------------已完成单元测试
+
+
++src                              基类：遵循PEP8的规定，所有类文件都用小写命名
+ -ShareAccount          实现回测
+ -BasicStrategy           实现基础数据的读入
+ ###组合方式
+ -IPortfolio                   组合抽象基类，用于静态类型检查
+ -EqualPortfolio          等权组合
+ -MarketPortfolio       市值加权组合
+ -ReturnPortfolio        收益率加权组合
+ -MinVariancePortfolio 最小方差组合
+ ###选股方式
+ -ISelection                   选股抽象基类，用于静态类型检查
+ -FullSelection             全样本
+ -MultiFactor               多因子选股
+ -MinKL                         最小收益分布差异（最小KL散度）            
+
++test                            单元测试
++main                          各个方法的主程序
++plotdata                   生成的各项数据
++plot                           绘图程序
++figure                        绘制的图片
++doc                           技术报告
